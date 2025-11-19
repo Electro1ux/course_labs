@@ -1,33 +1,7 @@
 <div align="center">
 <h1><a id="intro"> Лабораторные работы <sup><kbd>intro</kbd></sup></a><br></h1>
-<a href="https://docs.github.com/en"><img src="https://img.shields.io/static/v1?logo=github&logoColor=fff&label=&message=Docs&color=36393f&style=flat" alt="GitHub Docs"></a>
-<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a> 
-<a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
-<a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
-<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analyze-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 
 ***
-
-<br>Салют :wave:,</br>
-Отмечу основные моменты, которые вам необходимы для успешной и качественной подготовки:
-
-- Сформировать навыки работы с **git, CI, CD, Docker, packages, appsec toolchain, etc**. Каждый мини проект должен будет собран по формату из представленных лабораторных работ и размещен на сервисе GitHub, с формирование соответствующего отчета в виде gistup для демонстрации выполненной работы и скриншотами результатов (**где это требуется**). 
-
-- Часть работ базируется на **C/C++** с использованием **CMakeList**, аналогично также работы на **Go**, **Python**, **JAVA** и соответствующих инстурментов **SAST, SCA, Container Security, DAST, Secret Detection, etc.**. В лабораторных рассматривается также использование инструментов требующих установки дополнительных пакетов open-source. 
-
-- Работы направленны на углубление и изучение материалов, которые необходимы для итерационной разработки, изучения паттернов програмирования, прототипирования. 
-
-- Для каждой лабораторной работы следует создавать собственный репозиторий (возможно использование **fork**), в котором необходимо разместить исходный код проекта, адлее составить отчет к нему в формате **gistup**. Каждый отчет сдается индивидуально с защитой, каждая используемая команда должна иметь описание (пояснение) в отчете **gistup** и содержать вывод из терминала/консоли.
-
-- Каждая работа изначально должна итерационно разбиваться на коммиты изменений для их отслеживания 
-
-- Все лабораторные работы должны быть выполнены в ветке develop и необходимо делать <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review"> approve </a> для `pull requeste` на [geminishkv](https://github.com/geminishkv), тем самым будет финально подтверждаться согласование изменений и правок, которые были внесены удаленно 
-
-<div align="center"><h3>Stay tuned ;)</h3></div> 
-
-**Замечание:** лабораторные работы - обязательны к прохождению, сдаче и итерационной разработке, при любом уровне подготовки. Также, необходимо скопировать этапы реализации и отмечать у себя именно те, которые были сданы (приняты).
-
-*** 
 
 ### Этапы реализации
     
@@ -190,36 +164,3 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - [touch](https://en.wikipedia.org/wiki/Touch_(Unix))
 
 </p></details></div>
-
-<details><summary><strong>Package Managers</summary><p>
-
-- [apt](http://help.ubuntu.ru/wiki/apt)
-- [dnf](https://en.wikipedia.org/wiki/DNF_(software))
-- [yum](https://fedoraproject.org/wiki/Yum/ru)
-- [brew](https://brew.sh)
-- [linuxbrew](http://linuxbrew.sh)
-- [npm](https://docs.npmjs.com)
-
-</p></details></div>
-
-***
-
-### Ресурсы:
-
-* 📘  Аннотационный материал:
-    * <a href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/ppt/"> Лекции</a>
-* 📦 **Releases**:
-* Links:
-    * [Google Sheets](https://www.google.ru/intl/ru/sheets/about/)
-    * [Google Docs](https://www.google.ru/intl/ru/docs/about/)
-    * [GitHub SSH Key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-    * [Markdown](https://stackedit.io)
-    * [Gist](https://gist.github.com)
-    * [GitHub Personal Token](https://github.com/settings/tokens/new)
-    * [GitHub CLI](https://cli.github.com)
-    * [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
-    * [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
-
-Copyright (c) 2025 Elijah S Shmakov
-
-![Logo](artifacts/logotype/logo.jpg)
