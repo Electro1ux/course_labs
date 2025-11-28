@@ -1,40 +1,76 @@
 <div align="center">
-<h1><a id="intro"> Лабораторные работы <sup><kbd>intro</kbd></sup></a><br></h1>
+<h1><a id="intro"> Лабораторные работы <sup><kbd>Course</kbd></sup></a><br></h1>
 <a href="https://docs.github.com/en"><img src="https://img.shields.io/static/v1?logo=github&logoColor=fff&label=&message=Docs&color=36393f&style=flat" alt="GitHub Docs"></a>
 <a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a> 
 <a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
 <a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
-<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analyze-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
+<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
+
+<div align="center">
+<img src="https://img.shields.io/github/repo-size/geminishkv/course_labs" alt="repo size"></a>
+<img src="https://img.shields.io/github/last-commit/geminishkv/course_labs" alt="repo size"></a>
+<img src="https://img.shields.io/github/commit-activity/m/geminishkv/course_labs" alt="repo size"></a>
+<img src="https://img.shields.io/github/issues-pr/geminishkv/course_labs"></a>
+<img src="https://img.shields.io/github/contributors/geminishkv/course_labs"></a></div>
+
+<br>Салют :wave:,</br>
+Отмечу основные моменты:
+
+*  Цель - сформировать навыки работы с `git`, `CI`, `CD`, `docker`, `packages`, `appsec toolchain`, `yml`, etc. 
+*  *Часть работ базируется на на `Go`, `Python`, `JAVA`, `js` и и.д.
+*  Рассматриваются инструменты `SAST`, `SCA`, `Container Security`, `DAST`, `Secret Detection`, etc. 
+*  Работы направлены на углубление и изучение материалов анализа рисков и оценки защищенности приложений, которые необходимы для итерационной разработки, также дают дополнительно возможности для изучения паттернов программирования, прототипирования
+*  Каждый мини проект должен будет собран по формату из представленных лабораторных работ и размещен на сервисе `GitHub`, с формирование соответствующего отчета в виде `gistup` для демонстрации выполненной работы и скриншотами результатов (**где это требуется**). 
+*  Для каждой лабораторной работы следует создавать собственный репозиторий (возможно использование `fork` с родительского), в котором необходимо разместить исходный код проекта, далее составить отчет к нему в формате `gistup`. 
+*  Все лабораторные работы должны быть выполнены в ветке develop и необходимо cделать [approve](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review) по `pull request` на [geminishkv](https://github.com/geminishkv), тем самым будет финально подтверждаться согласование изменений и правок, которые были внесены удаленно 
+
+![Logo](assets/logotype/logo2.jpg)
+
+**Замечание:** 
+* Лабораторные работы - обязательны к прохождению, сдаче и итерационной разработке, при любом уровне подготовки
+* Необходимо скопировать этапы реализации и отмечать у себя именно те, которые были сделаны
+* Каждая работа изначально должна итерационно разбиваться на коммиты изменений для их отслеживания
+* Каждый отчет сдается индивидуально с защитой, каждая используемая команда должна иметь описание (пояснение) в отчете `gistup` и содержать вывод из терминала с пояснением команды в консоли
+* В лабораторных рассматривается также использование инструментов требующих установки дополнительных пакетов open-source
+* Для всех отчетов следует избегать скриншотов и делать со вставками вывода из консоли и описания используемых команд, флагов и что они означают для понимания принципа их работы
+
+<div align="center"><h2>Stay tuned ;)</h3></div> 
+
+### Этапы
+    
+1. Ознакомление с учебными материалами по [лекциям](artifacts/ppt/)
+2. Ознакомиться с [примерами](artifacts/exmpls/)
+3. Каждый репозиторий должен содержать `.gitignore`, `code of condact`, `contributing`, `license`, `notice`, `security` и должен быть адаптирован под конкретную лабораторную работу, проект.
+    * **Обратите внимание**, что тип лицензий должен быть подобран правильно при переиспользовании материалов проекта и следует ознакомиться с ними дополнительно.
+4. Выполнить следующие работы порядково:
+
+-  [ ] lab01 - [Лабораторная работа посвящена изучению **gitscm** и подготовительными материалами для последующих работ](labs/lab01/README.md)
+    -  Материалы для работы [тут](labs/lab01/)
+-  [ ] lab02 - [Лабораторная работа посвящена изучению работы *nix, контролей прав доступа, оперированию процессов](labs/lab02/README.md)
+    -  Материалы для работы [тут](labs/lab02/)
+    -  Пример отчета [тут](https://gist.github.com/MishaBary/21ab63f83292a86268e039d484a86411). [Исходник]()
+-  [ ] lab03 - [Лабораторная работа посвящена изучению **nmap** и анализа выявленных уязвимостей](labs/lab03/README.md)
+    -  Материалы для работы [тут](labs/lab03/)
+-  [ ] lab04 - [Данная лабораторная работа посвящена практическому **анализу и определению мер** снижения рисков ИБ](labs/lab04/README.md)
+-  [ ] lab05 - [Данная лабораторная работа посвящена изучению **Docker** и как с ним работать](labs/lab05/README.md)
+    -  Материалы для работы [тут](labs/lab05/)
+-  [ ] **Обновление будет предоставлено позднее**
+
+5. Реализовать итоговую работу и составить отчет
+
+-  [ ] **Обновление будет предоставлено позднее** 
 
 ***
 
-<br>Салют :wave:,</br>
-Отмечу основные моменты, которые вам необходимы для успешной и качественной подготовки:
+### Сопроводительные материалы:
 
-- Сформировать навыки работы с **git, CI, CD, Docker, packages, appsec toolchain, etc**. Каждый мини проект должен будет собран по формату из представленных лабораторных работ и размещен на сервисе GitHub, с формирование соответствующего отчета в виде gistup для демонстрации выполненной работы и скриншотами результатов (**где это требуется**). 
-
-- Часть работ базируется на **C/C++** с использованием **CMakeList**, аналогично также работы на **Go**, **Python**, **JAVA** и соответствующих инстурментов **SAST, SCA, Container Security, DAST, Secret Detection, etc.**. В лабораторных рассматривается также использование инструментов требующих установки дополнительных пакетов open-source. 
-
-- Работы направленны на углубление и изучение материалов, которые необходимы для итерационной разработки, изучения паттернов програмирования, прототипирования. 
-
-- Для каждой лабораторной работы следует создавать собственный репозиторий (возможно использование **fork**), в котором необходимо разместить исходный код проекта, адлее составить отчет к нему в формате **gistup**. Каждый отчет сдается индивидуально с защитой, каждая используемая команда должна иметь описание (пояснение) в отчете **gistup** и содержать вывод из терминала/консоли.
-
-- Каждая работа изначально должна итерационно разбиваться на коммиты изменений для их отслеживания 
-
-- Все лабораторные работы должны быть выполнены в ветке develop и необходимо делать <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review"> approve </a> для `pull requeste` на [geminishkv](https://github.com/geminishkv), тем самым будет финально подтверждаться согласование изменений и правок, которые были внесены удаленно 
-
-<div align="center"><h3>Stay tuned ;)</h3></div> 
-
-**Замечание:** лабораторные работы - обязательны к прохождению, сдаче и итерационной разработке, при любом уровне подготовки. Также, необходимо скопировать этапы реализации и отмечать у себя именно те, которые были сданы (приняты).
-
-*** 
-
-### Этапы реализации
-    
-1.  Порядок выполнения работ:
-
--  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md"> Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
--  [ ] **Обновление будет предоставлено позднее**
+* [Cheatsheet GitScm](artifacts/cheatsheet/CHEATSHEET_GIT.md)
+* [Cheatsheet .gitignore](artifacts/cheatsheet/CHEATSHEET_GITIGNORE.md)
+* [Cheatsheet GitHub CLI](artifacts/cheatsheet/CHEATSHEET_GH_CLI.md)
+* [Cheatsheet Docker](artifacts/cheatsheet/CHEATSHEET_DOCKER.md)
+* [Cheatsheet .dockerignore](artifacts/cheatsheet/CHEATSHEET_DOCKERIGNORE.md)
+* [License Notice](./NOTICE.md)
+* [Приложение](./APPENDIX.md)
 
 ***
 
@@ -52,81 +88,91 @@
 - ✔️ Обеспечить размещение пакета проекта на сервисе GitHub Release при успешном слияние ветки develop и master
 - ✔️ Проконтролировать корректную эксплуатацию проекта
 - ✔️ Рефакторинг и поддержка лабораторных работ в процессной деятельности
-- ✔️ Все команды выполняться строго их терминала/ консоли без использования WebUI за исключениям работы с токенами, ключами и специфичными настройками.
+- ✔️ Все команды выполняться строго из терминала/ консоли без использования WebUI за исключениям работы с токенами, ключами и специфичными настройками.
 
 ***
 
-### Сопроводительыне материалы
+### Структура репозитория
 
-- gitscm
-
-```sh
-$ git init # Инициализация пустого локального репозитория
-$ git remote add origin URL_link # Связывание удалённого репозитория с именем "origin" по ссылке "URL_link" с локальным
-$ git pull origin name_branch # Ветка из которой мы берем изменения для тестирования
-$ git remote show # Показать подключенные удалённые репозитории
-$ git status 	# Показывает состояние локального репозитория (отслеживаемые, изменённые, новые файлы и пр.)
-$ git add . # Добавить в индекс все новые, изменённые, удалённые файлы из текущей директории и её поддиректорий
-$ git commit -S -m"added sources" # Зафиксировать в коммите проиндексированные изменения (закоммитить), добавить сообщение
-$ git push origin name_branch # Отправляем изменения из локально репозитория в удалённый в ветку "name_branch"
-$ git show HEAD # Информация о последнем комите (git log -1)
-$ git clean -fdn # Удаляет неотслеживаемые файлы и каталоги с предворительным просмотром
-$ git push --set-upstream origin new-name # Установка upstream (связывает локальную ветку с удаленной)
-$ git remote show # Вывод связанных веток
-$ git push origin :old-name # Удаление старой ветки в удаленном репо
-$ git push origin new-name # Публикация новой ветки
+```
+├── APPENDIX.md
+├── artifacts
+│   ├── art_cheatsheet
+│   │   ├── Docker_Image_Security_Best_Practices.pdf
+│   │   └── gitscm.jpg
+│   ├── cheatsheet
+│   │   ├── CHEATSHEET_DOCKER.md
+│   │   ├── CHEATSHEET_DOCKERIGNORE.md
+│   │   ├── CHEATSHEET_GH_CLI.md
+│   │   ├── CHEATSHEET_GIT.md
+│   │   └── CHEATSHEET_GITIGNORE.md
+│   ├── exmpls
+│   │   ├── Аналитический отчет по уязвимости PrintNightmare.pdf
+│   │   ├── Пример - Multisignature - Безопасности криптовалютных платежей.pdf
+│   │   └── Пример_аналитических_отчетов_по_задачам_ИБ.pdf
+│   ├── owasp
+│   │   ├── OWASP_Top_10_CICD_Risks.pdf
+│   │   ├── Авторизация (Authorization).pdf
+│   │   ├── Атаки на клиентов (Client-side Attacks).pdf
+│   │   ├── Аутентификация (Authentication).pdf
+│   │   ├── Выполнение кода (Command Execution).pdf
+│   │   ├── Логические атаки (Logical Attacks).pdf
+│   │   └── Разглашение информации (Information Disclosure).pdf
+│   └── ppt
+│       └── Лекция_Управление Рисками ИБ_intro.pdf
+├── assets
+│   ├── logotype
+│   │   ├── logo.jpg
+│   │   └── logo2.jpg
+│   └── style
+│       └── style.css
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── labs
+│   ├── lab01
+│   │   ├── README.md
+│   │   └── typersteel.py
+│   ├── lab02
+│   │   ├── exmpl_hello.py
+│   │   ├── pygamesteel.py
+│   │   └── README.md
+│   ├── lab03
+│   │   ├── exmp_targets.txt
+│   │   └── README.md
+│   ├── lab04
+│   │   └── README.md
+│   ├── lab05
+│   │   ├── client
+│   │   │   ├── client.py
+│   │   │   ├── Dockerfile
+│   │   │   └── requirements.txt
+│   │   ├── docker-compose.yml
+│   │   ├── README.md
+│   │   ├── server
+│   │   │   ├── app.py
+│   │   │   ├── Dockerfile
+│   │   │   └── requirements.txt
+│   │   └── source
+│   │       ├── Dockerfile
+│   │       ├── hello.py
+│   │       ├── image.tar
+│   │       └── requirements.txt
+│   └── lab06
+│       └── README.md
+├── LICENSE.md
+├── NOTICE.md
+├── README.md
+└── SECURITY.md
 ```
 
-- gitscm index
+***
 
-```bash
-$ git add text.txt # Добавить в индекс указанный файл (был изменён, был удалён или это новый файл)
-$ git add -i # Запустить интерактивную оболочку для добавления в индекс только выбранных файлов
-$ git add -p # Показать новые/изменённые файлы по очереди с указанием их изменений и вопросом об отслеживании/индексировании
-$ git reset # Убрать из индекса все добавленные в него изменения (в рабочей директории все изменения сохранятся), антипод git add
-$ git reset readme.txt # Убрать из индекса изменения указанного файла (в рабочей директории изменения сохранятся)
-$ git checkout text.txt # ОПАСНО: отменить изменения в файле, вернуть состояние файла, имеющееся в индексе
-$ git reset --hard # ОПАСНО: отменить изменения; вернуть то, что в коммите, на который указывает HEAD (незакомиченные изменения удалены из индекса и из рабочей директории, неотслеживаемые файлы останутся на месте)
-$ git clean -df # Удалить неотслеживаемые файлы и директории
-```
+### Ресурсы:
 
-- gitscm конфликты
+* 📘  **Аннотационный материал:**
 
-```bash
-
-$ git remote set-url origin ssh://git@github.com_gitlab.com/username/newRepoName.git # Замена URL
-$ git pull --rebase origin name_branch # Переинициализация
-$ git remote -v # Проверка правильности указанного link
-$ git reset HEAD~ # Отмена последнего commit $ git reset --hard HEAD~ # Удаление commit с изменениями
-$ git push origin --delete name_branch / git branch -rD origin/name_branch
-$ git branch -d name_branch # Удаление локального репо
-$ git reset HEAD file # Убирает файл из индекса
-$ git checkout -- file # Отменяет изменение
-$ git clean -fdn # Удаляет неотслеживаемые файлы и каталоги с предварительным просмотром
-```
-
-- gh actions
-
-```bash
-$ gh auth login
-$ gh repo create repo_name # Cоздание удаленного репозитория (без URL)
-$ gh pr create # pull reguest
-	 —assignee «nickname» 
-	 --base main 
-	 --head feature-branch # Индивидуальный pull request (можно -a)
-$ gh pr create --title "Bug" --body "work" $ gh pr create --base base_name # head changed_branch $ gh repo create repo_name --source=. --public
-$ gh repo clone user/repo
-$ gh issue list # Список открытых issue
-$ gh pr create --title "Название" --body "Описание" --base main --head feature-branch
-	 --title # Заголовок PR
-	 --body # Описание
-	 --base # Целевая ветка
-	 --head # Ваша ветка
-$ gh pr merge --squash
-$ gh repo view --web # Открыть репозитория в web
-```
-
-- gistup
+    * [OWASP TOP 10](artifacts/owasp/)
+    * `gistup`
 
 ```bash
 $ npm install -g gistup
@@ -134,82 +180,9 @@ $ gh <command> <subcommand> --help
 $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 ```
 
-- .gitignore
-
-```
-*build*/
-*install*/
-*.swp
-.idea/
-```
-
-***
-
-### Приложение:
-
-<details><summary><strong>Указатели</strong></summary><p>
-
-- `HEAD` — указатель на текущий коммит или на текущую ветку (то есть, в любом случае, на коммит). Указывает на родителя коммита, который будет создан следующим.
-- `ORIG_HEAD` — указатель на коммит, с которого вы только что переместили `HEAD` (командой `git reset` ..., например).
-- Ветка (`master`, `develop` etc.) — указатель на коммит. При добавлении коммита, указатель ветки перемещается с родительского коммита на новый.
-- Теги — простые указатели на коммиты. Не перемещаются.
-
- </p></details></div>
- 
-<details><summary><strong>ENV</strong></summary><p>
-
-Команда git config позволяет управлять конфигурацией (примеры для --global)
-
-- Локальный (--local) - только для текущего репозитория, файл .git/config
-- Глобальный (--global) - для пользователя, файл ~/.gitconfig
-- Системный (--system) - для всех пользователей /etc/gitconfig
-
- </p></details></div>
-
-<details><summary><strong>Unix commands</summary><p>
-
-- [ar](https://en.wikipedia.org/wiki/Ar_(Unix))
-- [cat](https://en.wikipedia.org/wiki/Cat_(Unix))
-- [cd](https://en.wikipedia.org/wiki/Cd_(command))
-- [cp](https://en.wikipedia.org/wiki/Cp_(Unix))
-- [cut](https://en.wikipedia.org/wiki/Cut_(Unix))
-- [echo](https://en.wikipedia.org/wiki/Echo_(command))
-- [env](https://en.wikipedia.org/wiki/Env_(shell))
-- [ex](https://en.wikipedia.org/wiki/Ex_(editor))
-- [file](https://en.wikipedia.org/wiki/File_(command))
-- [find](https://en.wikipedia.org/wiki/Find)
-- [ls](https://en.wikipedia.org/wiki/Ls)
-- [man](https://en.wikipedia.org/wiki/Man_page)
-- [mkdir](https://en.wikipedia.org/wiki/Mkdir)
-- [mv](https://en.wikipedia.org/wiki/Mv)
-- [nm](https://en.wikipedia.org/wiki/Nm_(Unix))
-- [ps](https://en.wikipedia.org/wiki/Ps_(Unix))
-- [pwd](https://en.wikipedia.org/wiki/Pwd)
-- [rm](https://en.wikipedia.org/wiki/Rm_(Unix))
-- [sed](https://en.wikipedia.org/wiki/Sed)
-- [touch](https://en.wikipedia.org/wiki/Touch_(Unix))
-
-</p></details></div>
-
-<details><summary><strong>Package Managers</summary><p>
-
-- [apt](http://help.ubuntu.ru/wiki/apt)
-- [dnf](https://en.wikipedia.org/wiki/DNF_(software))
-- [yum](https://fedoraproject.org/wiki/Yum/ru)
-- [brew](https://brew.sh)
-- [linuxbrew](http://linuxbrew.sh)
-- [npm](https://docs.npmjs.com)
-
-</p></details></div>
-
-***
-
-### Ресурсы:
-
-* 📘  Аннотационный материал:
-    * <a href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/ppt/"> Лекции</a>
 * 📦 **Releases**:
-* Links:
+
+* **Links:**
     * [Google Sheets](https://www.google.ru/intl/ru/sheets/about/)
     * [Google Docs](https://www.google.ru/intl/ru/docs/about/)
     * [GitHub SSH Key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
@@ -218,8 +191,12 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
     * [GitHub Personal Token](https://github.com/settings/tokens/new)
     * [GitHub CLI](https://cli.github.com)
     * [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+    * [Docker](https://docs.docker.com/)
     * [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
+    * [Code of Conduct](https://www.contributor-covenant.org)
 
 Copyright (c) 2025 Elijah S Shmakov
 
-![Logo](artifacts/logotype/logo.jpg)
+
+![Logo](assets/logotype/logo.jpg)
+
