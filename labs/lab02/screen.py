@@ -1,7 +1,6 @@
 import pygame
 import typer
 import time
-import sys
 
 app = typer.Typer()
 
@@ -21,9 +20,17 @@ def colorful_render(screen, font, text, position):
 def main(
     name: str,
     lastname: str = typer.Option("", help="Фамилия пользователя."),
-    formal: bool = typer.Option(False, "--formal", "-f", help="Использовать формальное приветствие."),
+    formal: bool = typer.Option(
+        False,
+        "--formal",
+        "-f",
+        help="Использовать формальное приветствие."),
 ):
-    greeting = f"Добрый день, {name} {lastname}!" if formal else f"Привет, {name}!"
+    if formal:
+    greeting = f"Добрый день, {name} {lastname}!".strip()
+    else:
+    greeting = f"Привет, {name}!"
+
 
     pygame.init()
     screen_width, screen_height = 800, 600
