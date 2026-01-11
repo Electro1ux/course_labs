@@ -19,7 +19,7 @@ def headless_typewriter(text: str, delay: float = 0.05) -> None:
         color = ANSI_COLORS[i % len(ANSI_COLORS)]
         typer.echo(color + ch + ANSI_RESET, nl=False)
         time.sleep(delay)
-    typer.echo("")  
+    typer.echo("")
 
 
 @app.command()
