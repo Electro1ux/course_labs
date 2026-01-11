@@ -1,11 +1,18 @@
 import pygame
-import typer
 import time
+import typer
 
 app = typer.Typer()
 
+
 def colorful_render(screen, font, text, position):
-    colors = [(255, 0, 0), (0, 255, 0), (255, 255, 0), (0, 0, 255), (255, 0, 255)]
+    colors = [
+        (255, 0, 0),
+        (0, 255, 0),
+        (255, 255, 0),
+        (0, 0, 255),
+        (255, 0, 255),
+    ]
     x, y = position
 
     for i, char in enumerate(text):
@@ -16,33 +23,39 @@ def colorful_render(screen, font, text, position):
         pygame.display.flip()
         time.sleep(0.2)  # пауза для эффекта "печатающейся строки"
 
+
 @app.command()
 def main(
     name: str,
-    lastname: str = typer.Option("", help="Фамилия пользователя."),
+    lastname: str = typer.Option(
+        "",
+        help="Фамилия пользователя.",
+    ),
     formal: bool = typer.Option(
         False,
         "--formal",
         "-f",
-        help="Использовать формальное приветствие."),
+        help="Использовать формальное приветствие.",
+    ),
 ):
     if formal:
-    greeting = f"Добрый день, {name} {lastname}!".strip()
+        greeting = f"Добрый день, {name} {lastname}!"
     else:
-    greeting = f"Привет, {name}!"
-
+        greeting = f"Привет, {name}!"
 
     pygame.init()
     screen_width, screen_height = 800, 600
     screen = pygame.display.set_mode((screen_width, screen_height))
     pygame.display.set_caption("Greeting App")
-    screen.fill((0, 0, 0))  # черный фон
+    screen.fill((0, 0, 0))  # чёрный фон
 
     font = pygame.font.SysFont(None, 75)
-    text_rect = font.render(greeting, True, (255, 255, 255)).get_rect()
+    text_surface = font.render(greeting, True, (255, 255, 255))
+    text_rect = text_surface.get_rect()
     text_rect.center = (screen_width // 2, screen_height // 2)
 
     colorful_render(screen, font, greeting, (text_rect.x, text_rect.y))
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -50,6 +63,7 @@ def main(
                 running = False
 
     pygame.quit()
+
 
 if __name__ == "__main__":
     app()
