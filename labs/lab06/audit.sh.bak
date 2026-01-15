@@ -85,8 +85,7 @@ run_bench() {
   echo ""
 
   BENCH_OUTPUT="${REPORTS_TXT}/docker-bench-security-cis.txt"
-
-  set +e
+  
   docker run --rm \
     --name "docker-bench-security-$(date +%s)" \
     --cap-add audit_control \
@@ -97,35 +96,7 @@ run_bench() {
     ${mounts} \
     --label docker_bench_security \
     "${BENCH_IMAGE}" 2>&1 | tee "${BENCH_OUTPUT}"
-  rc=${PIPESTATUS[0]}
-  set -e
-
-  if [ "${rc}" -ne 0 ]; then
-    echo ""
-    echo "WARN: docker-bench-security image run failed (exit=${rc})."
-    echo "Falling back to running Docker Bench from GitHub repository (host script)."
-    echo ""
-
-    # Фолбэк: запускаем официальный скрипт на хосте (WSL/Linux)
-    if ! command -v git >/dev/null 2>&1; then
-      echo "Installing git..."
-      sudo apt-get update
-      sudo apt-get install -y git
-    fi
-
-    tmpdir="$(mktemp -d)"
-    git clone --depth 1 https://github.com/docker/docker-bench-security.git "${tmpdir}/docker-bench-security"
-    # ВАЖНО: запускаем через bash, иначе будут ошибки "[[: not found"
-# И запускаем без sudo, чтобы временные файлы не создавались от root (иначе rm -rf может ругаться)
-    (cd "${tmpdir}/docker-bench-security" && bash ./docker-bench-security.sh) 2>&1 | tee "${BENCH_OUTPUT}"
-    rm -rf "${tmpdir}" 2>/dev/null || sudo rm -rf "${tmpdir}"
-
-
-    echo ""
-    echo "CIS audit output saved to: ${BENCH_OUTPUT}"
-    return 0
-  fi
-
+  
   echo ""
   echo "CIS audit output saved to: ${BENCH_OUTPUT}"
 }
