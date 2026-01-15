@@ -876,8 +876,6 @@ v1rpmwrxoj76c20cvdpb3ebq3
 
 Total reclaimed space: 400.6MB
 ```
- 
-***
 
 ## Troobleshooting
 
@@ -888,8 +886,6 @@ $ chmod +x xxx.sh # разрешение прав при permission denied
 ```
 
 - На macOS/AArch64 docker-bench-security может не запускаться из‑за ограничений Docker Desktop и это работает для Linux‑VM. На Mac используем Trivy‑скан и разбор конфигурации compose‑файлов.
-
-***
 
 ## Links
 
