@@ -16,7 +16,11 @@ def colorful_print(text):
 def main(
     name: str,
     lastname: str = typer.Option("", help="Фамилия пользователя."),
-    formal: bool = typer.Option(False, "--formal", "-f", help="Использовать формальное приветствие."),
+    formal: bool = typer.Option(
+        False,
+        "--formal",
+        "-f",
+        help="Использовать формальное приветствие."),
 ):
     greeting = f"Добрый день, {name} {lastname}!" if formal else f"Привет, {name}!"
     colorful_print(greeting)
