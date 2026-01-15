@@ -1,14 +1,17 @@
-FROM python:3.11-slim AS builder
-WORKDIR /hello
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip wheel --wheel-dir=/wheels -r requirements.txt
+# Использование официального образа Python версии 3.11 на базе slim
+FROM python:3.11-slim
 
-FROM python:3.11-slim 
+# Установка рабочей директории внутри контейнера
 WORKDIR /hello
-COPY --from=builder /wheels /wheels 
-COPY requirements.txt .
-RUN pip install --no-index --find-links=/wheels -r requirements.txt
-COPY hello.py .
 
-ENV PYTHONUNBUFFERED=1
-CMD ["python", "hello.py"]
+# Копирование файла зависимостей в контейнер
+COPY requirements.txt .
+
+# Установка зависимостей из файла requirements.txt без кэширования pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Копирование основного Python-скрипта в контейнер
+COPY screen.py .
+
+# Команда запуска приложения при старте контейнера
+CMD ["python", "screen.py"]
