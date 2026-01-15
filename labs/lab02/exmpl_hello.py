@@ -1,8 +1,11 @@
-import typer
 import sys
 import time
+import typer
 
-def colorful_print(text):
+app = typer.Typer()
+
+
+def colorful_print(text: str, delay: float = 0.05) -> None:
     colors = ["\033[91m", "\033[92m", "\033[93m", "\033[94m", "\033[95m"]
     reset = "\033[0m"
     for i, char in enumerate(text):
@@ -12,6 +15,7 @@ def colorful_print(text):
         time.sleep(delay)
     print()  # перенос строки после текста
 
+
 @app.command()
 def main(
     name: str,
@@ -20,12 +24,12 @@ def main(
         False,
         "--formal",
         "-f",
-        help="Использовать формальное приветствие."),
-):
+        help="Использовать формальное приветствие.",
+    ),
+) -> None:
     greeting = f"Добрый день, {name} {lastname}!" if formal else f"Привет, {name}!"
     colorful_print(greeting)
 
 
 if __name__ == "__main__":
-    colorful_print("hello appsec world")
-
+    app()
