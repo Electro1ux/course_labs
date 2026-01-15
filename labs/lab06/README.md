@@ -629,53 +629,52 @@ $ deactivate # или $ deactivate 2>/dev/null || true
 
 По результатам CIS Docker Benchmark (docker-bench-security) выявлены следующие ключевые проблемы:
 
-1) **Privileged контейнер**  
+1) Privileged контейнер
 CIS: `5.5 - Container running in Privileged mode: vulnerable-web`  
-**Причина:** в `vulnerable-app.yml` задано `privileged: true` для `vulnerable-web` (и также для `debug-shell`).
+Причина: в `vulnerable-app.yml` задано `privileged: true` для `vulnerable-web` (и также для `debug-shell`).
 
-2) **Linux capabilities не ограничены (cap_add: ALL)**  
+2) Linux capabilities не ограничены (cap_add: ALL)
 CIS: `5.4 - Capabilities added: CapAdd=[ALL] to vulnerable-web`  
-**Причина:** `cap_add: - ALL` в `vulnerable-app.yml`.
+Причина: `cap_add: - ALL` в `vulnerable-app.yml`.
 
-3) **Сетевое пространство имён хоста разделяется с контейнером (host networking)**  
+3) Сетевое пространство имён хоста разделяется с контейнером (host networking)
 CIS: `5.10 - Container running with networking mode 'host': vulnerable-web`  
-**Причина:** `network_mode: host` в `vulnerable-app.yml`.
+Причина: `network_mode: host` в `vulnerable-app.yml`.
 
-4) **PID namespace хоста разделяется с контейнером (host pid)**  
+4) PID namespace хоста разделяется с контейнером (host pid)
 CIS: `5.16 - Host PID namespace being shared with: vulnerable-web`  
-**Причина:** `pid: host` в `vulnerable-app.yml`.
+Причина: `pid: host` в `vulnerable-app.yml`.
 
-5) **Docker socket смонтирован внутрь контейнера**  
+5) Docker socket смонтирован внутрь контейнера
 CIS: `5.32 - Docker socket shared: vulnerable-web`  
-**Причина:** `/var/run/docker.sock:/var/run/docker.sock` в `vulnerable-app.yml`.
+Причина: `/var/run/docker.sock:/var/run/docker.sock` в `vulnerable-app.yml`.
 
-6) **Корень хоста смонтирован как RW**  
-**Причина:** `- /:/hostroot:rw` в `vulnerable-app.yml`.
-(Это “короткий путь” к чтению/модификации файлов хоста.)
+6) Корень хоста смонтирован как RW 
+Причина: `- /:/hostroot:rw` в `vulnerable-app.yml`.
 
-7) **Seccomp/AppArmor не применяются (unconfined/disabled)**  
+7) Seccomp/AppArmor не применяются (unconfined/disabled)  
 CIS фиксирует проблемы seccomp/AppArmor (в частности, `Default seccomp profile disabled: vulnerable-web`).  
-**Причина:** `seccomp:unconfined` и `apparmor:unconfined` в `vulnerable-app.yml`.
+Причина: `seccomp:unconfined` и `apparmor:unconfined` в `vulnerable-app.yml`.
 
-8) **Порт БД открыт наружу и привязан к 0.0.0.0**  
+8) Порт БД открыт наружу и привязан к 0.0.0.0  
 CIS:  
 - `5.9 - Port in use: 5432 in insecure-db`  
 - `5.14 - Port being bound to wildcard IP: 0.0.0.0 in insecure-db`  
-**Причина:** в `docker-compose.yml` указан проброс `5432:5432` без ограничения интерфейса.
+Причина: в `docker-compose.yml` указан проброс `5432:5432` без ограничения интерфейса.
 
-9) **Нет лимитов ресурсов (CPU/RAM/PIDs)**  
+9) Нет лимитов ресурсов (CPU/RAM/PIDs)
 CIS WARN: `5.11` (memory), `5.12` (CPU), `5.29` (PIDs).  
-**Причина:** в compose-файлах не указаны ограничения ресурсов.
+Причина: в compose-файлах не указаны ограничения ресурсов.
 
-10) **Root FS контейнеров в режиме R/W и нет HEALTHCHECK**  
+10) Root FS контейнеров в режиме R/W и нет HEALTHCHECK  
 CIS WARN: `5.13 root FS mounted R/W`, `5.27 health check not set`, также `4.6 No Healthcheck found`.  
-**Причина:** в сервисах/образах не заданы `read_only: true` и `healthcheck`.
+Причина: в сервисах/образах не заданы `read_only: true` и `healthcheck`.
 
 
 - [x] 6. Опишите влияния уязвимостей, их сценарий атаки
 
 
-**Доступ внутрь `vulnerable-web` и захват Docker на хосте через `docker.sock`**
+Доступ внутрь `vulnerable-web` и захват Docker на хосте через `docker.sock`
 - Условие: атакующий получает выполнение команд в `vulnerable-web` (эксплойт уязвимого приложения/доступные debug-инструменты).
 - Факторы усиления: `docker.sock` смонтирован, `privileged: true`, `cap_add: ALL`, профили защиты отключены.
 - Развитие атаки:
@@ -684,17 +683,17 @@ CIS WARN: `5.13 root FS mounted R/W`, `5.27 health check not set`, также `4
   3) украсть конфиги/ключи/данные и/или закрепиться.
 - Итог: утечка данных и компрометация окружения WSL/хоста.
 
-**Прямой доступ к ФС хоста через `/hostroot:rw`**
+Прямой доступ к ФС хоста через `/hostroot:rw`
 - Условие: атакующий внутри контейнера.
 - Вектор: `/:/hostroot:rw` позволяет читать/менять файлы хоста.
 - Итог: кража секретов (ssh-ключи, токены), подмена конфигов, внедрение “закладок”.
 
-**Компрометация БД через открытый порт 5432**
+Компрометация БД через открытый порт 5432
 - Условие: атакующий имеет доступ к сети хоста.
 - Вектор: порт Postgres открыт наружу и привязан к `0.0.0.0`, а учётные данные легко угадываются/находятся в compose.
 - Итог: чтение/удаление/подмена данных приложения.
 
-**Supply-chain риск из-за уязвимостей в образах**
+Supply-chain риск из-за уязвимостей в образах
 - В `docker/docker-bench-security:latest` присутствуют CRITICAL CVE (`libseccomp`, `musl`).
 - Итог: риск эксплуатации уязвимостей в среде, где этот образ используется (особенно при расширенных правах/доступах).
 
